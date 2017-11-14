@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProgramSongCell" rowHeight="70" id="KGk-i7-Jjw" customClass="ProgramSongCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srm-ns-VMi">
+                        <rect key="frame" x="15" y="25.5" width="7" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before Dawn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tX-zF-RQa">
+                        <rect key="frame" x="45" y="13" width="92.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.1647058824" green="0.1843137255" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lsaac Shepard-Swepy Away" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6t-qN-Q7q">
+                        <rect key="frame" x="45" y="39.5" width="182.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2tX-zF-RQa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="22l-83-Hxc"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="W6t-qN-Q7q" secondAttribute="trailing" constant="15" id="6rM-mZ-tJb"/>
+                    <constraint firstItem="srm-ns-VMi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="9xl-R3-Hgc"/>
+                    <constraint firstItem="2tX-zF-RQa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="45" id="MiI-sI-eX7"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2tX-zF-RQa" secondAttribute="trailing" constant="15" id="bML-nd-JLq"/>
+                    <constraint firstAttribute="bottom" secondItem="W6t-qN-Q7q" secondAttribute="bottom" constant="13" id="q8J-cI-aoH"/>
+                    <constraint firstItem="W6t-qN-Q7q" firstAttribute="leading" secondItem="2tX-zF-RQa" secondAttribute="leading" id="uN9-0c-fRI"/>
+                    <constraint firstItem="srm-ns-VMi" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uzf-vP-PC9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="artistalbumName" destination="W6t-qN-Q7q" id="qnG-Ol-MB7"/>
+                <outlet property="numLab" destination="srm-ns-VMi" id="LQR-Vr-Qhk"/>
+                <outlet property="songnameLab" destination="2tX-zF-RQa" id="DZ7-1e-rl2"/>
+            </connections>
+            <point key="canvasLocation" x="64" y="67"/>
+        </tableViewCell>
+    </objects>
+</document>
