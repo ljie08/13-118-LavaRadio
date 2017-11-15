@@ -65,6 +65,8 @@
 
 //播放页
 - (void)gotoPlayVCWithSong:(Song *)song;
+//将音乐数组传过去，以便可以切换下一首
+- (void)playMusicWithSong:(Song *)song musicArr:(NSArray *)musicArr;
 - (void)gotoPlayVC;
 //节目-歌曲
 - (void)gotoSongVCWithProgramId:(NSString *)programId;

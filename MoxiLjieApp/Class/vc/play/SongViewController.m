@@ -26,10 +26,16 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    
+    [self loadData];
+}
+
 #pragma mark - data
 - (void)initViewModelBinding {
     self.viewmodel = [[SongViewModel alloc] init];
-    [self loadData];
 }
 
 - (void)loadData {
@@ -118,7 +124,8 @@
         
     } else {
         Song *model = self.viewmodel.songList[indexPath.row-1];
-        [self gotoPlayVCWithSong:model];
+//        [self gotoPlayVCWithSong:model];
+        [self playMusicWithSong:model musicArr:self.viewmodel.songList];
     }
 }
 

@@ -13,9 +13,11 @@
 
 //@property (nonatomic, strong) NSString *songid;
 
-@property (nonatomic,strong) LynnPlayer *file;
+@property (nonatomic, strong) LynnPlayer *file;
 
 @property (nonatomic, strong) Song *song;
+
+@property (nonatomic, strong) NSArray *musicList;
 
 + (instancetype)shareSongPlay;
 

@@ -175,7 +175,7 @@
 - (void)getCollectProgramsListWithUserId:(NSString *)uid success:(void(^)(NSArray *programsList))success failure:(void(^)(NSString *errorStr))failure {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:uid forKey:@"uid"];
-    [self requestWithMethod:POST WithUrl:UserPrograms_PATH WithParams:params WithSuccessBlock:^(NSDictionary *dic) {
+    [self requestWithMethod:POST WithUrl:CollectPrograms_PATH WithParams:params WithSuccessBlock:^(NSDictionary *dic) {
         NSDictionary *data = [dic objectForKey:@"data"];
         NSArray *lists = [Program mj_objectArrayWithKeyValuesArray:[data objectForKey:@"lists"]];
         for (Program *pro in lists) {

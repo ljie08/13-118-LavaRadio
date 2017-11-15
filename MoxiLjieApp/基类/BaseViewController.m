@@ -229,6 +229,16 @@
     [self.navigationController pushViewController:play animated:YES];
 }
 
+//将音乐数组传过去，以便可以切换下一首
+- (void)playMusicWithSong:(Song *)song musicArr:(NSArray *)musicArr {
+    PlayViewController *play = [PlayViewController shareSongPlay];
+    play.musicList = musicArr;
+    [play setSongPlayWithSong:song];
+    play.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:play animated:YES];
+}
+
 - (void)gotoPlayVC {
     NSString *file = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     NSString *path = [file stringByAppendingPathComponent:@"song.plist"];

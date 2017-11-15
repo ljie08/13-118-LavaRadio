@@ -10,8 +10,6 @@
 
 @interface PlayViewModel : BaseViewModel
 
-
-
 - (void)getPlayDataWithID:(NSString *)songID success:(void(^)(BOOL result))success failture:(void(^)(NSString *error))failture;
 
 @end

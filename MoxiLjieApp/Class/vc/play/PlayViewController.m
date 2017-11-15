@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *playTimeLab;//播放时间
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLab;//总时间
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;//播放
+@property (weak, nonatomic) IBOutlet UIButton *lastBtn;
+@property (weak, nonatomic) IBOutlet UIButton *nextBtn;
 
 @property (nonatomic, strong) DOUAudioStreamer *streamer;
 @property (nonatomic,assign) BOOL isPlay;// 是否处于播放状态
@@ -62,9 +64,6 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    [defaults setObject:self.song forKey:@"song"];
     
     NSString *file = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     NSString *path = [file stringByAppendingPathComponent:@"song.plist"];
@@ -130,6 +129,40 @@
         [self addCurrentTimeTimer];
     }
     self.isPlay = self.playBtn.selected;
+}
+
+//上一首
+- (IBAction)lastMusic:(id)sender {
+    self.playTimeLab.text = @"0:00";
+    Song *song = [self getMusicWithIndex:-1];
+    [self setSongPlayWithSong:song];
+}
+
+//下一首
+- (IBAction)nextMusic:(id)sender {
+    self.playTimeLab.text = @"0:00";
+    Song *song = [self getMusicWithIndex:1];
+    [self setSongPlayWithSong:song];
+}
+
+- (Song *)getMusicWithIndex:(int)index {
+    Song *model = [[Song alloc] init];
+    for (int i = 0; i < self.musicList.count; i++) {
+        //当前播放是第一首，点击上一首播放数组中最后一首
+        if (i == 0 && index < 0) {
+            return self.musicList.lastObject;
+        }
+        //当前播放是最后一首，点击下一首播放数组中第一首
+        if (i == self.musicList.count - 1 && index > 0) {
+            return self.musicList.firstObject;
+        }
+        model = self.musicList[i];
+        //取当前的前/后一个song
+        if ([self.song.song_id isEqualToString:model.song_id]) {
+            return self.musicList[i+index];
+        }
+    }
+    return nil;
 }
 
 - (void)goBack {
@@ -312,7 +345,7 @@
     
     [self.bgImgview sd_setImageWithURL:[NSURL URLWithString:self.song.pic_url] placeholderImage:MusicPlaceholderImage options:SDWebImageAllowInvalidSSLCertificates];
     [self.abulmImgview sd_setImageWithURL:[NSURL URLWithString:self.song.pic_url] placeholderImage:MusicPlaceholderImage options:SDWebImageAllowInvalidSSLCertificates];
-    self.songnameLab.text = self.song.salbums_name;
+    self.songnameLab.text = [NSString stringWithFormat:@"专辑-%@", self.song.salbums_name];
     self.artistLab.text = self.song.artists_name;
     self.playTimeLab.text = @"0:00";
     self.totalTimeLab.text = [self strWithDuration:self.song.duration];

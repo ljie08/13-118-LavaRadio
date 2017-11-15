@@ -9,6 +9,7 @@
 #import "UserListViewController.h"
 #import "UserListViewModel.h"
 #import "SongCollectionViewCell.h"
+#import "SongViewController.h"
 
 @interface UserListViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, RefreshCollectionViewDelegate>
 
@@ -83,9 +84,16 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    //    Song *song = self.viewmodel.homeList[indexPath.row];
-    //    [self gotoPlayVCWithSongId:song.song_id];
-    
+    Program *program = self.viewmodel.programList[indexPath.row];
+    for (UIViewController *controller in self.navigationController.viewControllers) {
+        
+        if ([controller isKindOfClass:[SongViewController class]]) {
+            SongViewController *vc = (SongViewController *)controller;
+            vc.program = program;
+            
+            [self.navigationController popToViewController:vc animated:YES];
+        }
+    }
 }
 
 #pragma mark - UI
